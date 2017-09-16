@@ -33,6 +33,11 @@ class GameViewController: UIViewController,ARSCNViewDelegate {
         sceneView.session.pause()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super .viewDidAppear(animated)
+        mapSpace()
+    }
+    
     private func blub(arr: [BrainDead])->[SCNNode]{
         return arr.enumerated().map {(z, col) in
             let cube: SCNNode
@@ -50,7 +55,7 @@ class GameViewController: UIViewController,ARSCNViewDelegate {
         }
     }
     
-    private func mapSpace()->[SCNNode]{
+    private func mapSpace(){
         var store: [SCNNode] = []
         for (x, slice) in game.space.enumerated() {
             for (y, axis) in slice.enumerated() {
@@ -66,12 +71,17 @@ class GameViewController: UIViewController,ARSCNViewDelegate {
                     case .Yellow :
                         cube = cubeNode(0.03, color: UIColor.yellow.withAlphaComponent(0.3) )
                     }
-                    cube.position = SCNVector3(0.1 * Double(x), 0.1 * Double(y), 0.1 * Double(z))
+                    cube.position = SCNVector3(0.03 * Double(x), 0.03 * Double(y), 0.03 * Double(z))
                     store.append(cube)
                 }
             }
         }
+        for node in store {
+            sceneView.scene.rootNode.addChildNode(node)
+        }
     }
+    
+    
     
         
     func cubeNode(_ scale: CGFloat,color: UIColor)->SCNNode{
@@ -84,3 +94,4 @@ class GameViewController: UIViewController,ARSCNViewDelegate {
         return SCNNode(geometry: cubeGeometry)
     }
 
+}
