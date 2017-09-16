@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A632B8B11F6D04FB003AE961 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A632B8B01F6D04FB003AE961 /* GameViewController.swift */; };
+		A632B8B31F6D0580003AE961 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = A632B8B21F6D0580003AE961 /* Game.swift */; };
 		A64C63FC1F6CD8B600A407B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64C63FB1F6CD8B600A407B0 /* AppDelegate.swift */; };
 		A64C63FE1F6CD8B600A407B0 /* CoordinateSystemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64C63FD1F6CD8B600A407B0 /* CoordinateSystemViewController.swift */; };
 		A64C64011F6CD8B600A407B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A64C63FF1F6CD8B600A407B0 /* Main.storyboard */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A632B8B01F6D04FB003AE961 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		A632B8B21F6D0580003AE961 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		A64C63F81F6CD8B600A407B0 /* ARPlay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARPlay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A64C63FB1F6CD8B600A407B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A64C63FD1F6CD8B600A407B0 /* CoordinateSystemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateSystemViewController.swift; sourceTree = "<group>"; };
@@ -59,7 +63,9 @@
 				A64C640D1F6CD8C900A407B0 /* Supporting Files */,
 				A64C63FD1F6CD8B600A407B0 /* CoordinateSystemViewController.swift */,
 				A64C640E1F6CDA3700A407B0 /* CoordinateSystem.swift */,
+				A632B8B01F6D04FB003AE961 /* GameViewController.swift */,
 				A64C63FF1F6CD8B600A407B0 /* Main.storyboard */,
+				A632B8B21F6D0580003AE961 /* Game.swift */,
 				A64C64071F6CD8B700A407B0 /* Info.plist */,
 			);
 			path = ARPlay;
@@ -147,6 +153,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A632B8B11F6D04FB003AE961 /* GameViewController.swift in Sources */,
+				A632B8B31F6D0580003AE961 /* Game.swift in Sources */,
 				A64C63FE1F6CD8B600A407B0 /* CoordinateSystemViewController.swift in Sources */,
 				A64C63FC1F6CD8B600A407B0 /* AppDelegate.swift in Sources */,
 				A64C640F1F6CDA3700A407B0 /* CoordinateSystem.swift in Sources */,
