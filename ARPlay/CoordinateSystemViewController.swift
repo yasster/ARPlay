@@ -18,10 +18,9 @@ class CoordinateSystemViewController: UIViewController, ARSCNViewDelegate {
             let panHandler = #selector(CoordinateSystemViewController.moveObject(byReactingTo:))
             let panRecognizer = UIPanGestureRecognizer(target: self, action: panHandler)
             sceneView.addGestureRecognizer(panRecognizer)
-            
-            let tapHandler = #selector(CoordinateSystemViewController.addAllMarkers(byReactingTo:))
-            let tapRecognizer = UITapGestureRecognizer(target: self, action: tapHandler)
-            sceneView.addGestureRecognizer(tapRecognizer)
+//            let tapHandler = #selector(CoordinateSystemViewController.addAllMarkers(byReactingTo:))
+//            let tapRecognizer = UITapGestureRecognizer(target: self, action: tapHandler)
+//            sceneView.addGestureRecognizer(tapRecognizer)
         }
     }
     
@@ -34,34 +33,20 @@ class CoordinateSystemViewController: UIViewController, ARSCNViewDelegate {
             if let node = getARObject(at: location){
                 activeMarker = node; break
             }
-        case .changed, .ended:
+        case .changed:
             if let anchor = getNewAnchor(at: location){
                 sceneView.session.add(anchor: anchor)
                 activeMarker?.removeFromParentNode()
-                if (activeMarker != nil) { activeMarkerWrapper?.addChildNode(activeMarker!) }
+                if (activeMarker != nil && activeMarkerWrapper != nil) {
+                    activeMarkerWrapper!.addChildNode(activeMarker!)
+                    mapNodeToParent[activeMarker!] = activeMarkerWrapper!
+                }
             }
+        case .ended:
+            activeMarker = nil
+            activeMarkerWrapper = nil
         default:
             break
-        }
-    }
-    
-    let colors: Dictionary<String, UIColor> = [
-        "Red": UIColor.red, "Green": UIColor.green, "Blue": UIColor.blue, "Yellow": UIColor.yellow
-    ]
-    
-    var markersHaveBeenAdded: Bool = false
-    @objc func addAllMarkers(byReactingTo tapRecognizer: UITapGestureRecognizer) {
-        let location = tapRecognizer.location(in: sceneView)
-        if let anchor = getNewAnchor(at: location){
-            sceneView.session.add(anchor: anchor)
-            
-            if (!markersHaveBeenAdded && activeMarkerWrapper != nil){
-                for color in colors.values {
-                    let cube = makeCube(0.03, color: color)
-                    activeMarkerWrapper!.addChildNode(cube)
-                }
-                markersHaveBeenAdded = true
-            }
         }
     }
     
@@ -111,5 +96,37 @@ class CoordinateSystemViewController: UIViewController, ARSCNViewDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         super .viewWillDisappear(animated)
         sceneView.session.pause()
+    }
+    
+    let colors: Dictionary<String, UIColor> = [
+        "Red": UIColor.red, "Green": UIColor.green, "Blue": UIColor.blue, "Yellow": UIColor.yellow
+    ]
+    
+//        var markersHaveBeenAdded: Bool = false
+//        @objc func addAllMarkers(byReactingTo tapRecognizer: UITapGestureRecognizer) {
+//            let location = tapRecognizer.location(in: sceneView)
+//            if let anchor = getNewAnchor(at: location){
+//                sceneView.session.add(anchor: anchor)
+//
+//                if (!markersHaveBeenAdded && activeMarkerWrapper != nil){
+//                    for color in colors.values {
+//                        let cube = makeCube(0.03, color: color)
+//                        activeMarkerWrapper!.addChildNode(cube)
+//                    }
+//                    markersHaveBeenAdded = true
+//                }
+//            }
+//        }
+    
+    var mapColorToNode: [SCNNode: String] = [:]
+    var mapNodeToParent: [SCNNode : SCNNode] = [:]
+    override func viewDidAppear(_ animated: Bool) {
+        super .viewDidAppear(animated)
+        for (key, color) in colors {
+            let cube = makeCube(0.03, color: color)
+            sceneView.scene.rootNode.addChildNode(cube)
+            mapColorToNode[cube] = key
+            mapNodeToParent[cube] = sceneView.scene.rootNode
+        }
     }
 }

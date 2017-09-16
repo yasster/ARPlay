@@ -15,9 +15,12 @@
 		A64C64031F6CD8B600A407B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A64C64021F6CD8B600A407B0 /* Assets.xcassets */; };
 		A64C64061F6CD8B600A407B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A64C64041F6CD8B600A407B0 /* LaunchScreen.storyboard */; };
 		A64C640F1F6CDA3700A407B0 /* CoordinateSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64C640E1F6CDA3700A407B0 /* CoordinateSystem.swift */; };
+		D9433FAFDEE11EFB6628FA65 /* Pods_ARPlay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA04697B5AD895B8C9EE256A /* Pods_ARPlay.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		493A07A3FFE12D5397F96F6B /* Pods-ARPlay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARPlay.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ARPlay/Pods-ARPlay.debug.xcconfig"; sourceTree = "<group>"; };
+		9B4AC068E8746C17F51D4384 /* Pods-ARPlay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARPlay.release.xcconfig"; path = "Pods/Target Support Files/Pods-ARPlay/Pods-ARPlay.release.xcconfig"; sourceTree = "<group>"; };
 		A632B8B01F6D04FB003AE961 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		A632B8B21F6D0580003AE961 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		A64C63F81F6CD8B600A407B0 /* ARPlay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARPlay.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -28,6 +31,8 @@
 		A64C64051F6CD8B600A407B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A64C64071F6CD8B700A407B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A64C640E1F6CDA3700A407B0 /* CoordinateSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateSystem.swift; sourceTree = "<group>"; };
+		A6D43A511F6DCDB300A92547 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BA04697B5AD895B8C9EE256A /* Pods_ARPlay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARPlay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +40,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9433FAFDEE11EFB6628FA65 /* Pods_ARPlay.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D6EC1BE3D779984EEF0D59D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				493A07A3FFE12D5397F96F6B /* Pods-ARPlay.debug.xcconfig */,
+				9B4AC068E8746C17F51D4384 /* Pods-ARPlay.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9B91A46C12DD77795B1F4212 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BA04697B5AD895B8C9EE256A /* Pods_ARPlay.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A64C63EF1F6CD8B600A407B0 = {
 			isa = PBXGroup;
 			children = (
 				A64C63FA1F6CD8B600A407B0 /* ARPlay */,
 				A64C63F91F6CD8B600A407B0 /* Products */,
+				4D6EC1BE3D779984EEF0D59D /* Pods */,
+				9B91A46C12DD77795B1F4212 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -66,6 +91,7 @@
 				A632B8B01F6D04FB003AE961 /* GameViewController.swift */,
 				A64C63FF1F6CD8B600A407B0 /* Main.storyboard */,
 				A632B8B21F6D0580003AE961 /* Game.swift */,
+				A6D43A511F6DCDB300A92547 /* GoogleService-Info.plist */,
 				A64C64071F6CD8B700A407B0 /* Info.plist */,
 			);
 			path = ARPlay;
@@ -88,9 +114,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A64C640A1F6CD8B700A407B0 /* Build configuration list for PBXNativeTarget "ARPlay" */;
 			buildPhases = (
+				40484FA5B1D58998FD6D2CB1 /* [CP] Check Pods Manifest.lock */,
 				A64C63F41F6CD8B600A407B0 /* Sources */,
 				A64C63F51F6CD8B600A407B0 /* Frameworks */,
 				A64C63F61F6CD8B600A407B0 /* Resources */,
+				8E6ACD310F50363CA80DD43E /* [CP] Embed Pods Frameworks */,
+				6A23E553A4E816954DD380DA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -147,6 +176,62 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		40484FA5B1D58998FD6D2CB1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ARPlay-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6A23E553A4E816954DD380DA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ARPlay/Pods-ARPlay-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8E6ACD310F50363CA80DD43E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ARPlay/Pods-ARPlay-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ARPlay/Pods-ARPlay-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A64C63F41F6CD8B600A407B0 /* Sources */ = {
@@ -292,13 +377,14 @@
 		};
 		A64C640B1F6CD8B700A407B0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 493A07A3FFE12D5397F96F6B /* Pods-ARPlay.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5CJHDQBCQ2;
 				INFOPLIST_FILE = ARPlay/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ca.sfu.alirezaa.ARPlay;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.sfu.ARPlay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -307,13 +393,14 @@
 		};
 		A64C640C1F6CD8B700A407B0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9B4AC068E8746C17F51D4384 /* Pods-ARPlay.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5CJHDQBCQ2;
 				INFOPLIST_FILE = ARPlay/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ca.sfu.alirezaa.ARPlay;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.sfu.ARPlay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

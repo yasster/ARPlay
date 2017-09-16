@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>1063092473835-gemk2g5m8oc19jnn7s14po45r7t8g8ug.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1063092473835-gemk2g5m8oc19jnn7s14po45r7t8g8ug</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBtU_zu71KS3qV8RfRbQ4Ug8qkCxY--qtU</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1063092473835</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>ca.sfu.ARPlay</string>
+	<key>PROJECT_ID</key>
+	<string>arplay-28383</string>
+	<key>STORAGE_BUCKET</key>
+	<string>arplay-28383.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1063092473835:ios:263af69693101d8e</string>
+	<key>DATABASE_URL</key>
+	<string>https://arplay-28383.firebaseio.com</string>
+</dict>
+</plist>

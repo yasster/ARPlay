@@ -76,9 +76,53 @@ class GameViewController: UIViewController,ARSCNViewDelegate {
 //    }
     
     let cubeLength = 0.1
-    let cudeDimontions = (x: 10, y: 10, z: 20)
+    let cubeDimontions = (x: 10, y: 20, z: 10)
     
     func addGrid(){
+        for x in 0...cubeDimontions.x {
+            for y in 0...cubeDimontions.y {
+                addLine(x: x, y: y, z: nil)
+            }
+        }
         
+        for x in 0...cubeDimontions.x {
+            for z in 0...cubeDimontions.z {
+                addLine(x: x, y: nil, z: z)
+            }
+        }
+        
+        for y in 0...cubeDimontions.y {
+            for z in 0...cubeDimontions.z {
+                addLine(x: nil, y: y, z: z)
+            }
+        }
+    }
+    
+    func addLine(x: Int?, y: Int?, z: Int?){
+        // Y: height,up; X: lenght, right; Z: width, back
+        // https://developer.apple.com/documentation/scenekit/scnbox
+        // https://developer.apple.com/documentation/arkit/arconfiguration.worldalignment/2873776-gravityandheading
+        let material = SCNMaterial()
+        let scale: CGFloat = 0.002
+        material.diffuse.contents = UIColor.black.withAlphaComponent(0.3)
+        if z == nil {
+            let cubeGeometry = SCNBox(width: scale, height: CGFloat(cubeLength * Double(cubeDimontions.z)), length: scale, chamferRadius: 0.0)
+            cubeGeometry.materials = [material]
+            let node = SCNNode(geometry: cubeGeometry)
+            node.position = SCNVector3(Double(x!) * cubeLength, Double(y!) * cubeLength, Double(-cubeGeometry.width) - 0.3)
+            sceneView.scene.rootNode.addChildNode(node)
+        } else if y == nil {
+            let cubeGeometry = SCNBox(width: scale, height: scale, length: CGFloat(cubeLength * Double(cubeDimontions.y)), chamferRadius: 0.0)
+            cubeGeometry.materials = [material]
+            let node = SCNNode(geometry: cubeGeometry)
+            node.position = SCNVector3(Double(x!) * cubeLength, Double(cubeGeometry.height), Double(z!) * cubeLength - 0.3)
+            sceneView.scene.rootNode.addChildNode(node)
+        } else if x == nil {
+            let cubeGeometry = SCNBox(width: CGFloat(cubeLength * Double(cubeDimontions.x)), height: scale, length: scale, chamferRadius: 0.0)
+            cubeGeometry.materials = [material]
+            let node = SCNNode(geometry: cubeGeometry)
+            node.position = SCNVector3(Double(-cubeGeometry.length), Double(z!) * cubeLength, Double(y!) * cubeLength - 0.3)
+            sceneView.scene.rootNode.addChildNode(node)
+        }
     }
 }
