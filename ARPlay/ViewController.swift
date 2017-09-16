@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import ARKit
+import SceneKit
 
 class ViewController: UIViewController {
-
+    let origin = CoordinateSystem() // Model
+    @IBOutlet weak var sceneView: ARSCNView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
