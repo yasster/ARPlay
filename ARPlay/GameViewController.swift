@@ -10,9 +10,8 @@ import UIKit
 import SceneKit
 import ARKit
 
-
 class GameViewController: UIViewController,ARSCNViewDelegate {
-    let game = Game() // Model
+    let game = Game()
     
     @IBOutlet weak var sceneView: ARSCNView!
     
@@ -82,68 +81,68 @@ class GameViewController: UIViewController,ARSCNViewDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super .viewDidAppear(animated)
+        self.game.controller = self
 //        addGrid();
     }
     
-//    private func mapSpace(){
-//        var store: [SCNNode] = []
-//        for (x, slice) in game.space.enumerated() {
-//            for (y, axis) in slice.enumerated() {
-//                for (z, color) in axis.enumerated(){
-//                    let cube: SCNNode
-//                    switch color{
-//                    case .Blue :
-//                        cube =  cubeNode(0.03, color: UIColor.blue)
-//                    case .Red :
-//                        cube = cubeNode(0.03, color: UIColor.red)
-//                    case .Green :
-//                        cube = cubeNode(0.03, color: UIColor.green)
-//                    case .Yellow :
-//                        cube = cubeNode(0.03, color: UIColor.yellow)
-//                    }
-//                    cube.position = SCNVector3(cubeLength * Double(x), cubeLength * Double(y), cubeLength * Double(z))
-//                    store.append(cube)
-//                }
-//            }
-//        }
-//        for node in store {
-//            sceneView.scene.rootNode.addChildNode(node)
-//        }
-//    }
+    let colors: [Int: UIColor] = [
+        1 : UIColor.green,
+        2: UIColor.blue,
+        3: UIColor.red,
+        4: UIColor.yellow,
+        0: UIColor.black
+    ]
     
-//    func cubeNode(_ scale: CGFloat,color: UIColor)->SCNNode{
-//        let cubeGeometry = SCNBox(width: scale, height: scale, length: scale, chamferRadius: 0.0)
-//
-//        let material = SCNMaterial()
-//        material.diffuse.contents = color
-//        cubeGeometry.materials = [material]
-//
-//        return SCNNode(geometry: cubeGeometry)
-//    }
+    var store: [SCNNode] = []
+    func mapSpace(){
+        for node in store {
+            node.removeFromParentNode()
+        }
+        store = []
+        for pos in game.cellPos {
+            let cube = cubeNode(CGFloat(cubeLength), color: colors[pos.col] ?? UIColor.purple)
+            cube.position = SCNVector3(cubeLength * Double(pos.x) - 1, -cubeLength * Double(pos.z) + 1, cubeLength * Double(pos.y) - 2)
+            store.append(cube)
+        }
+        for node in store {
+            sceneView.scene.rootNode.addChildNode(node)
+        }
+        
+    }
+    
+    func cubeNode(_ scale: CGFloat,color: UIColor)->SCNNode{
+        let cubeGeometry = SCNBox(width: scale, height: scale, length: scale, chamferRadius: 0.008)
+
+        let material = SCNMaterial()
+        material.diffuse.contents = color
+        cubeGeometry.materials = [material]
+
+        return SCNNode(geometry: cubeGeometry)
+    }
     
     let cubeLength = 0.1
     let cubeDimontions = (x: 10, y: 20, z: 10)
     
-    func addGrid(){
-        for x in 0...cubeDimontions.x {
-            for y in 0...cubeDimontions.y {
-                addLine(x: x, y: y, z: nil)
-            }
-        }
-        
-        for x in 0...cubeDimontions.x {
-            for z in 0...cubeDimontions.z {
-                addLine(x: x, y: nil, z: z)
-            }
-        }
-        
-        for y in 0...cubeDimontions.y {
-            for z in 0...cubeDimontions.z {
-                addLine(x: nil, y: y, z: z)
-            }
-        }
-    }
-    
+//    func addGrid(){
+//        for x in 0...cubeDimontions.x {
+//            for y in 0...cubeDimontions.y {
+//                addLine(x: x, y: y, z: nil)
+//            }
+//        }
+//
+//        for x in 0...cubeDimontions.x {
+//            for z in 0...cubeDimontions.z {
+//                addLine(x: x, y: nil, z: z)
+//            }
+//        }
+//
+//        for y in 0...cubeDimontions.y {
+//            for z in 0...cubeDimontions.z {
+//                addLine(x: nil, y: y, z: z)
+//            }
+//        }
+//    }
+//
 //    func addLine(x: Int?, y: Int?, z: Int?){
 //        // Y: height,up; X: lenght, right; Z: width, back
 //        // https://developer.apple.com/documentation/scenekit/scnbox
@@ -155,19 +154,19 @@ class GameViewController: UIViewController,ARSCNViewDelegate {
 //            let cubeGeometry = SCNBox(width: scale, height: CGFloat(cubeLength * Double(cubeDimontions.z)), length: scale, chamferRadius: 0.0)
 //            cubeGeometry.materials = [material]
 //            let node = SCNNode(geometry: cubeGeometry)
-//            node.position = SCNVector3(Double(x!) * cubeLength, Double(y!) * cubeLength, Double(-cubeGeometry.width) - 0.3)
+//            node.position = SCNVector3(Double(x!) * cubeLength, Double(y!) * cubeLength, Double(-cubeGeometry.width) - 4)
 //            sceneView.scene.rootNode.addChildNode(node)
 //        } else if y == nil {
 //            let cubeGeometry = SCNBox(width: scale, height: scale, length: CGFloat(cubeLength * Double(cubeDimontions.y)), chamferRadius: 0.0)
 //            cubeGeometry.materials = [material]
 //            let node = SCNNode(geometry: cubeGeometry)
-//            node.position = SCNVector3(Double(x!) * cubeLength, Double(cubeGeometry.height), Double(z!) * cubeLength - 0.3)
+//            node.position = SCNVector3(Double(x!) * cubeLength, Double(cubeGeometry.height), Double(z!) * cubeLength - 4)
 //            sceneView.scene.rootNode.addChildNode(node)
 //        } else if x == nil {
 //            let cubeGeometry = SCNBox(width: CGFloat(cubeLength * Double(cubeDimontions.x)), height: scale, length: scale, chamferRadius: 0.0)
 //            cubeGeometry.materials = [material]
 //            let node = SCNNode(geometry: cubeGeometry)
-//            node.position = SCNVector3(Double(-cubeGeometry.length), Double(z!) * cubeLength, Double(y!) * cubeLength - 0.3)
+//            node.position = SCNVector3(Double(-cubeGeometry.length), Double(z!) * cubeLength, Double(y!) * cubeLength - 4)
 //            sceneView.scene.rootNode.addChildNode(node)
 //        }
 //    }

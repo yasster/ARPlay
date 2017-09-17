@@ -10,64 +10,39 @@ import Foundation
 import Firebase
 import FirebaseDatabase
 
+class Position: NSObject {
+    var x: Int = 0
+    var y: Int = 0
+    var z: Int = 0
+    var col: Int = 0
+    
+    init(dict: [String: Int]?){
+        if dict != nil {
+            self.x = dict!["x"]!
+            self.y = dict!["y"]!
+            self.z = dict!["z"]!
+            self.col = dict!["col"]!
+        }
+    }
+}
+
 class Game {
+    var controller: GameViewController?
+    var cellPos: [Position] = []
     init() {
         FirebaseApp.configure();
-        var ref = Database.database().reference();
-        ref.child("actualState").observe(.value, with: { (snapshot) in
-            let postDict = snapshot.value as? [String : AnyObject] ?? [:]
-            print(postDict);
+        let ref = Database.database().reference();
+        ref.child("actualStateProcssed").observe(.value, with: { (snapshot) in
+            self.cellPos = []
+            if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
+                for snap in snapshots {
+                    if let posDict = snap.value as? Dictionary<String, Int> {
+                        let pos = Position(dict: posDict)
+                        self.cellPos.append(pos)
+                    }
+                }
+            }
+            self.controller?.mapSpace()
         });
-    }
-    
-    
-//    var store = ref
-//        func writeGame(dict: Dictionary<String, AnyObject>) {
-//            var gameId = 10
-//            var ref = Database.database().reference(withPath: "games/\(gameId)")
-//            ref.setValue(dict)
-//        }
-    
-    
-}
-
-class Position {
-    var x, y, z: Int
-    init(x: Int, y: Int, z: Int){
-        self.x = x
-        self.y = y
-        self.z = z
-    }
-    
-}
-
-class Blocks: NSObject {
-    var type: Int
-    var pos: Position
-    var shape: [Position]
-    
-    init(type: Int, pos: Position, shape: [Position]) {
-        self.type = type
-        self.pos = pos
-        self.shape = shape
-    }
-    
-    init?(snapshot: DataSnapshot) {
-        guard let dict = snapshot.value as? [String: String] else { return nil }
-        guard let _type  = dict["type"]  else { return nil }
-        guard let _pos = dict["position"] else { return nil }
-        guard let _shape = dict["shape"] else { return nil }
-        
-//        if let type = Int(type) {
-//            t
-//        }
-//        self.pos = pos
-//        self. = title
-//        self.body = body
-//        self.starCount = 0 as AnyObject?
-    }
-    
-    convenience override init() {
-//        self.init(uid: "", author: "", title: "", body:  "")
     }
 }

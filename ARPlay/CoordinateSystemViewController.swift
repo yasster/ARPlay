@@ -11,16 +11,11 @@ import ARKit
 import SceneKit
 
 class CoordinateSystemViewController: UIViewController, ARSCNViewDelegate {
-    let origin = CoordinateSystem() // Model
-    
     @IBOutlet weak var sceneView: ARSCNView! {
         didSet {
             let panHandler = #selector(CoordinateSystemViewController.moveObject(byReactingTo:))
             let panRecognizer = UIPanGestureRecognizer(target: self, action: panHandler)
             sceneView.addGestureRecognizer(panRecognizer)
-//            let tapHandler = #selector(CoordinateSystemViewController.addAllMarkers(byReactingTo:))
-//            let tapRecognizer = UITapGestureRecognizer(target: self, action: tapHandler)
-//            sceneView.addGestureRecognizer(tapRecognizer)
         }
     }
     
@@ -38,6 +33,7 @@ class CoordinateSystemViewController: UIViewController, ARSCNViewDelegate {
                 sceneView.session.add(anchor: anchor)
                 activeMarker?.removeFromParentNode()
                 if (activeMarker != nil && activeMarkerWrapper != nil) {
+                    activeMarker!.position = SCNVector3(0,0,0)
                     activeMarkerWrapper!.addChildNode(activeMarker!)
                     mapNodeToParent[activeMarker!] = activeMarkerWrapper!
                 }
@@ -99,24 +95,11 @@ class CoordinateSystemViewController: UIViewController, ARSCNViewDelegate {
     }
     
     let colors: Dictionary<String, UIColor> = [
-        "Red": UIColor.red, "Green": UIColor.green, "Blue": UIColor.blue, "Yellow": UIColor.yellow
+        "Red": UIColor.red,
+        "Green": UIColor.green,
+        "Blue": UIColor.blue,
+        "Yellow": UIColor.yellow
     ]
-    
-//        var markersHaveBeenAdded: Bool = false
-//        @objc func addAllMarkers(byReactingTo tapRecognizer: UITapGestureRecognizer) {
-//            let location = tapRecognizer.location(in: sceneView)
-//            if let anchor = getNewAnchor(at: location){
-//                sceneView.session.add(anchor: anchor)
-//
-//                if (!markersHaveBeenAdded && activeMarkerWrapper != nil){
-//                    for color in colors.values {
-//                        let cube = makeCube(0.03, color: color)
-//                        activeMarkerWrapper!.addChildNode(cube)
-//                    }
-//                    markersHaveBeenAdded = true
-//                }
-//            }
-//        }
     
     var mapColorToNode: [SCNNode: String] = [:]
     var mapNodeToParent: [SCNNode : SCNNode] = [:]
@@ -124,6 +107,7 @@ class CoordinateSystemViewController: UIViewController, ARSCNViewDelegate {
         super .viewDidAppear(animated)
         for (key, color) in colors {
             let cube = makeCube(0.03, color: color)
+            cube.position = SCNVector3(0.5-CGFloat(Float(arc4random()) / Float(UINT32_MAX)), 0, -1)
             sceneView.scene.rootNode.addChildNode(cube)
             mapColorToNode[cube] = key
             mapNodeToParent[cube] = sceneView.scene.rootNode
