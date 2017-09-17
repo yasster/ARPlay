@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cFD-Ts-2hx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -36,36 +36,31 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+            <point key="canvasLocation" x="139" y="115"/>
         </scene>
         <!--Game View Controller-->
-        <scene sceneID="mHR-hX-peD">
+        <scene sceneID="o7E-Lj-Mur">
             <objects>
-                <viewController id="cFD-Ts-2hx" customClass="GameViewController" customModule="ARPlay" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="bDY-b1-krg">
+                <viewController id="axv-6R-Unw" customClass="GameViewController" customModule="ARPlay" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TID-rc-vTf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gK0-jv-q1v">
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0PH-aa-LFL">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </arscnView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="gK0-jv-q1v" secondAttribute="trailing" id="FXj-Cr-5e5"/>
-                            <constraint firstItem="gK0-jv-q1v" firstAttribute="bottom" secondItem="2VJ-eE-oGf" secondAttribute="bottom" id="Iaf-a3-QRs"/>
-                            <constraint firstItem="gK0-jv-q1v" firstAttribute="top" secondItem="bDY-b1-krg" secondAttribute="top" id="LuZ-Cy-xTX"/>
-                            <constraint firstItem="gK0-jv-q1v" firstAttribute="leading" secondItem="bDY-b1-krg" secondAttribute="leading" id="OiQ-7h-7Ya"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="2VJ-eE-oGf"/>
+                        <viewLayoutGuide key="safeArea" id="JOo-3W-MyH"/>
                     </view>
                     <connections>
-                        <outlet property="sceneView" destination="gK0-jv-q1v" id="nQR-eZ-dp2"/>
+                        <outlet property="sceneView" destination="0PH-aa-LFL" id="Dsx-98-kGh"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fP3-K9-Vzk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gWe-44-uLe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="942.02898550724649" y="125.54347826086958"/>
+            <point key="canvasLocation" x="1002.8985507246377" y="114.94565217391305"/>
         </scene>
     </scenes>
 </document>

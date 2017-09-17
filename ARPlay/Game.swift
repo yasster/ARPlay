@@ -7,23 +7,27 @@
 //
 
 import Foundation
+import Firebase
+import FirebaseDatabase
 
-enum BrainDead {
-    case Blue
-    case Red
-    case Green
-    case Yellow
-}
 class Game {
+    init() {
+        FirebaseApp.configure();
+        var ref = Database.database().reference();
+        ref.child("actualState").observe(.value, with: { (snapshot) in
+            let postDict = snapshot.value as? [String : AnyObject] ?? [:]
+            // ...
+            print(postDict);
+        });
+    }
     
     
-    let space: [[[BrainDead]]] = [
-        [
-            [.Red, .Blue, .Green, .Yellow],
-            [.Red, .Red , .Red, .Red],
-            [.Blue, .Yellow, .Red, .Red]
-            
-        ]
-    ]
+//    var store = ref
+//        func writeGame(dict: Dictionary<String, AnyObject>) {
+//            var gameId = 10
+//            var ref = Database.database().reference(withPath: "games/\(gameId)")
+//            ref.setValue(dict)
+//        }
+    
     
 }

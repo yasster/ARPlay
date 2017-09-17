@@ -7,9 +7,9 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>1063092473835-gemk2g5m8oc19jnn7s14po45r7t8g8ug.apps.googleusercontent.com</string>
+	<string>1063092473835-1gpdbb7hh2bq28veo1bs6gaaorqrkn4m.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.1063092473835-gemk2g5m8oc19jnn7s14po45r7t8g8ug</string>
+	<string>com.googleusercontent.apps.1063092473835-1gpdbb7hh2bq28veo1bs6gaaorqrkn4m</string>
 	<key>API_KEY</key>
 	<string>AIzaSyBtU_zu71KS3qV8RfRbQ4Ug8qkCxY--qtU</string>
 	<key>GCM_SENDER_ID</key>
@@ -17,7 +17,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>ca.sfu.ARPlay</string>
+	<string>ca.sfu.alirezaa</string>
 	<key>PROJECT_ID</key>
 	<string>arplay-28383</string>
 	<key>STORAGE_BUCKET</key>
@@ -33,7 +33,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:1063092473835:ios:263af69693101d8e</string>
+	<string>1:1063092473835:ios:cba48d1fe5498567</string>
 	<key>DATABASE_URL</key>
 	<string>https://arplay-28383.firebaseio.com</string>
 </dict>

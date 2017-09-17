@@ -9,12 +9,14 @@
 /* Begin PBXBuildFile section */
 		A632B8B11F6D04FB003AE961 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A632B8B01F6D04FB003AE961 /* GameViewController.swift */; };
 		A632B8B31F6D0580003AE961 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = A632B8B21F6D0580003AE961 /* Game.swift */; };
+		A637DB7E1F6DFB5900F5CC8C /* SwipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A637DB7D1F6DFB5900F5CC8C /* SwipeView.swift */; };
 		A64C63FC1F6CD8B600A407B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64C63FB1F6CD8B600A407B0 /* AppDelegate.swift */; };
 		A64C63FE1F6CD8B600A407B0 /* CoordinateSystemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64C63FD1F6CD8B600A407B0 /* CoordinateSystemViewController.swift */; };
 		A64C64011F6CD8B600A407B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A64C63FF1F6CD8B600A407B0 /* Main.storyboard */; };
 		A64C64031F6CD8B600A407B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A64C64021F6CD8B600A407B0 /* Assets.xcassets */; };
 		A64C64061F6CD8B600A407B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A64C64041F6CD8B600A407B0 /* LaunchScreen.storyboard */; };
 		A64C640F1F6CDA3700A407B0 /* CoordinateSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64C640E1F6CDA3700A407B0 /* CoordinateSystem.swift */; };
+		A6D43A551F6DD8DB00A92547 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6D43A541F6DD8DB00A92547 /* GoogleService-Info.plist */; };
 		D9433FAFDEE11EFB6628FA65 /* Pods_ARPlay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA04697B5AD895B8C9EE256A /* Pods_ARPlay.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +25,7 @@
 		9B4AC068E8746C17F51D4384 /* Pods-ARPlay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARPlay.release.xcconfig"; path = "Pods/Target Support Files/Pods-ARPlay/Pods-ARPlay.release.xcconfig"; sourceTree = "<group>"; };
 		A632B8B01F6D04FB003AE961 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		A632B8B21F6D0580003AE961 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		A637DB7D1F6DFB5900F5CC8C /* SwipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeView.swift; sourceTree = "<group>"; };
 		A64C63F81F6CD8B600A407B0 /* ARPlay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARPlay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A64C63FB1F6CD8B600A407B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A64C63FD1F6CD8B600A407B0 /* CoordinateSystemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateSystemViewController.swift; sourceTree = "<group>"; };
@@ -31,7 +34,7 @@
 		A64C64051F6CD8B600A407B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A64C64071F6CD8B700A407B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A64C640E1F6CDA3700A407B0 /* CoordinateSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateSystem.swift; sourceTree = "<group>"; };
-		A6D43A511F6DCDB300A92547 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A6D43A541F6DD8DB00A92547 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BA04697B5AD895B8C9EE256A /* Pods_ARPlay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARPlay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -89,9 +92,10 @@
 				A64C63FD1F6CD8B600A407B0 /* CoordinateSystemViewController.swift */,
 				A64C640E1F6CDA3700A407B0 /* CoordinateSystem.swift */,
 				A632B8B01F6D04FB003AE961 /* GameViewController.swift */,
+				A637DB7D1F6DFB5900F5CC8C /* SwipeView.swift */,
 				A64C63FF1F6CD8B600A407B0 /* Main.storyboard */,
 				A632B8B21F6D0580003AE961 /* Game.swift */,
-				A6D43A511F6DCDB300A92547 /* GoogleService-Info.plist */,
+				A6D43A541F6DD8DB00A92547 /* GoogleService-Info.plist */,
 				A64C64071F6CD8B700A407B0 /* Info.plist */,
 			);
 			path = ARPlay;
@@ -170,6 +174,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A64C64061F6CD8B600A407B0 /* LaunchScreen.storyboard in Resources */,
+				A6D43A551F6DD8DB00A92547 /* GoogleService-Info.plist in Resources */,
 				A64C64031F6CD8B600A407B0 /* Assets.xcassets in Resources */,
 				A64C64011F6CD8B600A407B0 /* Main.storyboard in Resources */,
 			);
@@ -219,11 +224,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ARPlay/Pods-ARPlay-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -241,6 +248,7 @@
 				A632B8B11F6D04FB003AE961 /* GameViewController.swift in Sources */,
 				A632B8B31F6D0580003AE961 /* Game.swift in Sources */,
 				A64C63FE1F6CD8B600A407B0 /* CoordinateSystemViewController.swift in Sources */,
+				A637DB7E1F6DFB5900F5CC8C /* SwipeView.swift in Sources */,
 				A64C63FC1F6CD8B600A407B0 /* AppDelegate.swift in Sources */,
 				A64C640F1F6CDA3700A407B0 /* CoordinateSystem.swift in Sources */,
 			);
@@ -384,7 +392,7 @@
 				DEVELOPMENT_TEAM = 5CJHDQBCQ2;
 				INFOPLIST_FILE = ARPlay/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ca.sfu.ARPlay;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.sfu.alirezaa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -400,7 +408,7 @@
 				DEVELOPMENT_TEAM = 5CJHDQBCQ2;
 				INFOPLIST_FILE = ARPlay/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ca.sfu.ARPlay;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.sfu.alirezaa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
