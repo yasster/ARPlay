@@ -14,6 +14,28 @@ class GameViewController: UIViewController,ARSCNViewDelegate {
     let game = Game()
     
     @IBOutlet weak var sceneView: ARSCNView!
+    @IBOutlet weak var action: SwipeView!{
+        didSet {
+            let swipeHandler = #selector(self.swipeHandler(byReactingTo:))
+            let swipeRecognizer = UISwipeGestureRecognizer(target: self, action: swipeHandler)
+            action.addGestureRecognizer(swipeRecognizer)
+        }
+    }
+    
+    @objc func swipeHandler(byReactingTo swipeRecognizer: UISwipeGestureRecognizer){
+        switch swipeRecognizer.direction {
+        case .right:
+            print("right")
+        case .down:
+            print("down")
+        case .up:
+            print("up")
+        case .left:
+            print("left")
+        default:
+            break
+        }
+    }
     
 //    @IBOutlet weak var rotation: SwipeView!{
 //        didSet {
@@ -30,7 +52,7 @@ class GameViewController: UIViewController,ARSCNViewDelegate {
 //            movement.addGestureRecognizer(swipeRecognizer)
 //        }
 //    }
-//
+
 //    @objc func movementHandler(byReactingTo swipeRecognizer: UISwipeGestureRecognizer){
 //        switch swipeRecognizer.direction {
 //        case .right:
@@ -45,7 +67,7 @@ class GameViewController: UIViewController,ARSCNViewDelegate {
 //            break
 //        }
 //    }
-//
+
 //    @objc func rotationHandler(byReactingTo swipeRecognizer: UISwipeGestureRecognizer){
 //        switch swipeRecognizer.direction {
 //        case .right:
@@ -101,7 +123,7 @@ class GameViewController: UIViewController,ARSCNViewDelegate {
         store = []
         for pos in game.cellPos {
             let cube = cubeNode(CGFloat(cubeLength), color: colors[pos.col] ?? UIColor.purple)
-            cube.position = SCNVector3(cubeLength * Double(pos.x) - 1, -cubeLength * Double(pos.z) + 1, cubeLength * Double(pos.y) - 2)
+            cube.position = SCNVector3(cubeLength * Double(pos.x) - 0.4, cubeLength * Double(pos.z) - 0.5, cubeLength * Double(pos.y) - 2)
             store.append(cube)
         }
         for node in store {
